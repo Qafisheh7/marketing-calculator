@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Marketing Metrics Calculator</title>
+<meta name="description" content="Free calculator for ROMI, MER, CAC and LTV. No sign-up, runs fully in your browser.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <h1>Marketing Metrics Calculator</h1>
+  <p class="tagline">ROMI, MER, CAC and LTV in one place. Everything runs in your browser, nothing is sent anywhere.</p>
+</header>
+
+<main>
+  <section class="card">
+    <h2>Inputs</h2>
+    <div class="field">
+      <label for="revenue">Revenue attributed to marketing</label>
+      <input type="number" id="revenue" min="0" step="any" placeholder="e.g. 50000">
+    </div>
+    <div class="field">
+      <label for="totalRevenue">Total revenue (for MER)</label>
+      <input type="number" id="totalRevenue" min="0" step="any" placeholder="e.g. 120000">
+    </div>
+    <div class="field">
+      <label for="spend">Marketing spend</label>
+      <input type="number" id="spend" min="0" step="any" placeholder="e.g. 10000">
+    </div>
+    <div class="field">
+      <label for="customers">New customers acquired</label>
+      <input type="number" id="customers" min="0" step="any" placeholder="e.g. 200">
+    </div>
+    <div class="field">
+      <label for="aov">Average order value</label>
+      <input type="number" id="aov" min="0" step="any" placeholder="e.g. 250">
+    </div>
+    <div class="field">
+      <label for="margin">Gross margin %</label>
+      <input type="number" id="margin" min="0" max="100" step="any" placeholder="e.g. 60">
+    </div>
+    <div class="field">
+      <label for="lifespan">Average customer lifespan (orders)</label>
+      <input type="number" id="lifespan" min="0" step="any" placeholder="e.g. 4">
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Results</h2>
+    <div class="result"><span class="name">ROMI <small>(return on marketing investment)</small></span><span class="value" id="r-romi">-</span></div>
+    <div class="result"><span class="name">MER <small>(marketing efficiency ratio)</small></span><span class="value" id="r-mer">-</span></div>
+    <div class="result"><span class="name">CAC <small>(customer acquisition cost)</small></span><span class="value" id="r-cac">-</span></div>
+    <div class="result"><span class="name">LTV <small>(customer lifetime value, gross-margin adjusted)</small></span><span class="value" id="r-ltv">-</span></div>
+    <div class="result highlight"><span class="name">LTV : CAC</span><span class="value" id="r-ratio">-</span></div>
+    <p class="note" id="verdict"></p>
+  </section>
+
+  <section class="card formulas">
+    <h2>Formulas</h2>
+    <ul>
+      <li><strong>ROMI</strong> = (attributed revenue - spend) / spend</li>
+      <li><strong>MER</strong> = total revenue / spend</li>
+      <li><strong>CAC</strong> = spend / new customers</li>
+      <li><strong>LTV</strong> = average order value x gross margin x lifespan (in orders)</li>
+    </ul>
+    <p class="note">A common rule of thumb is an LTV:CAC ratio of 3 or higher for a healthy growth model.</p>
+  </section>
+</main>
+
+<footer>
+  <p>Open source, free to use and self-host. Built as a small practical tool for marketers.</p>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
